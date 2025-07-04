@@ -1,0 +1,132 @@
+2025-07-02 11:28:30,785 - INFO - Starting full pipeline execution...
+2025-07-02 11:28:30,788 - INFO - Starting data pipeline...
+2025-07-02 11:28:30,833 - INFO - Data loaded successfully from data/raw/feed.csv. Shape: (1171, 22)
+2025-07-02 11:28:31,071 - INFO - Data types after cleaning:
+post_id                         object
+creator_id                      object
+creator_location                object
+creator_connections             object
+creator_topic_interests         object
+creator_format_preferences      object
+creator_creator_preferences     object
+creator_expertise_levels        object
+content                         object
+timestamp                       object
+likes                          float64
+comments                       float64
+shares                         float64
+avg_time_spent                 float64
+topics                          object
+content_format                  object
+content_length                 float64
+location                        object
+sentiment_pos                  float64
+sentiment_neg                  float64
+sentiment_neu                  float64
+sentiment_compound             float64
+dtype: object
+2025-07-02 11:28:31,082 - INFO - Sample of parsed list/dict columns:
+  creator_connections  ...             creator_expertise_levels
+0        [u107, u108]  ...           {'music': 0.8, 'art': 0.4}
+1        [u106, u109]  ...      {'fitness': 0.8, 'health': 0.6}
+2        [u106, u110]  ...  {'photography': 0.9, 'travel': 0.3}
+
+[3 rows x 6 columns]
+2025-07-02 11:28:31,091 - INFO - Missing values after cleaning:
+likes                 1
+comments              1
+shares                1
+avg_time_spent        1
+sentiment_pos         1
+sentiment_neg         1
+sentiment_neu         1
+sentiment_compound    1
+content_length        1
+timestamp             0
+dtype: int64
+2025-07-02 11:28:31,131 - INFO - Cleaned data saved to data/processed/feed_cleaned.csv
+2025-07-02 11:28:31,180 - INFO - Filtered out 1 rows with invalid timestamps.
+2025-07-02 11:28:31,209 - INFO - Feature engineering complete. New features added:
+2025-07-02 11:28:31,209 - INFO -    engagement_score  hours_since_post  ... num_creator_connections    top_topic
+0             115.0        914.141995  ...                       2        music
+1              76.0        916.725328  ...                       2      fitness
+2             155.0        928.975328  ...                       2  photography
+
+[3 rows x 7 columns]
+2025-07-02 11:28:31,270 - INFO - Feature-engineered data saved to data/processed/feed_features.csv
+2025-07-02 11:28:31,272 - INFO - Running algorithmic ranking...
+2025-07-02 11:28:31,407 - INFO - Chronological Top 10 Posts: ['p066', 'p066', 'p106', 'p044', 'p040', 'p152', 'p044', 'p092', 'p082', 'p078']
+2025-07-02 11:28:31,423 - INFO - Engagement-Based Top 10 Posts: ['p068', 'p085', 'p080', 'p092', 'p094', 'p122', 'p080', 'p072', 'p063', 'p084']
+2025-07-02 11:28:31,429 - INFO - Training machine learning models...
+2025-07-02 11:29:59,924 - INFO - Saved xgboost model to models\saved\xgboost.joblib
+2025-07-02 11:30:00,201 - INFO - Saved neural_net model to models\saved\neural_net.joblib
+2025-07-02 11:30:00,201 - INFO - Running model comparison...
+2025-07-02 11:30:00,202 - WARNING - Insufficient model scores for comparison
+2025-07-02 11:30:00,203 - INFO - Running integrated ranking pipeline...
+2025-07-02 11:30:05,536 - INFO - Pipeline execution completed successfully!
+2025-07-02 11:31:00,579 - INFO - Starting full pipeline execution...
+2025-07-02 11:31:00,584 - INFO - Starting data pipeline...
+2025-07-02 11:31:00,680 - INFO - Data loaded successfully from data/raw/feed.csv. Shape: (1171, 22)
+2025-07-02 11:31:01,054 - INFO - Data types after cleaning:
+post_id                         object
+creator_id                      object
+creator_location                object
+creator_connections             object
+creator_topic_interests         object
+creator_format_preferences      object
+creator_creator_preferences     object
+creator_expertise_levels        object
+content                         object
+timestamp                       object
+likes                          float64
+comments                       float64
+shares                         float64
+avg_time_spent                 float64
+topics                          object
+content_format                  object
+content_length                 float64
+location                        object
+sentiment_pos                  float64
+sentiment_neg                  float64
+sentiment_neu                  float64
+sentiment_compound             float64
+dtype: object
+2025-07-02 11:31:01,094 - INFO - Sample of parsed list/dict columns:
+  creator_connections  ...             creator_expertise_levels
+0        [u107, u108]  ...           {'music': 0.8, 'art': 0.4}
+1        [u106, u109]  ...      {'fitness': 0.8, 'health': 0.6}
+2        [u106, u110]  ...  {'photography': 0.9, 'travel': 0.3}
+
+[3 rows x 6 columns]
+2025-07-02 11:31:01,105 - INFO - Missing values after cleaning:
+likes                 1
+comments              1
+shares                1
+avg_time_spent        1
+sentiment_pos         1
+sentiment_neg         1
+sentiment_neu         1
+sentiment_compound    1
+content_length        1
+timestamp             0
+dtype: int64
+2025-07-02 11:31:01,194 - INFO - Cleaned data saved to data/processed/feed_cleaned.csv
+2025-07-02 11:31:01,256 - INFO - Filtered out 1 rows with invalid timestamps.
+2025-07-02 11:31:01,294 - INFO - Feature engineering complete. New features added:
+2025-07-02 11:31:01,295 - INFO -    engagement_score  hours_since_post  ... num_creator_connections    top_topic
+0             115.0        914.183684  ...                       2        music
+1              76.0        916.767017  ...                       2      fitness
+2             155.0        929.017017  ...                       2  photography
+
+[3 rows x 7 columns]
+2025-07-02 11:31:01,401 - INFO - Feature-engineered data saved to data/processed/feed_features.csv
+2025-07-02 11:31:01,403 - INFO - Running algorithmic ranking...
+2025-07-02 11:31:01,634 - INFO - Chronological Top 10 Posts: ['p066', 'p066', 'p106', 'p044', 'p040', 'p152', 'p044', 'p092', 'p082', 'p078']
+2025-07-02 11:31:01,636 - INFO - Engagement-Based Top 10 Posts: ['p068', 'p085', 'p080', 'p092', 'p094', 'p122', 'p080', 'p072', 'p063', 'p084']
+2025-07-02 11:31:01,910 - INFO - Training machine learning models...
+2025-07-02 11:31:19,638 - INFO - Saved xgboost model to models\saved\xgboost.joblib
+2025-07-02 11:31:19,872 - INFO - Saved neural_net model to models\saved\neural_net.joblib
+2025-07-02 11:31:19,872 - INFO - Running model comparison...
+2025-07-02 11:31:19,872 - WARNING - Insufficient model scores for comparison
+2025-07-02 11:31:19,872 - INFO - Running integrated ranking pipeline...
+2025-07-02 11:31:29,440 - INFO - Pipeline execution completed successfully!
